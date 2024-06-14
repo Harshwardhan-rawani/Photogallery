@@ -12,7 +12,7 @@ const profile_router = require("./routers/profile.js")
 const userimage_router = require("./routers/userimage.js")
 const bodyParser = require('body-parser');
 const corsOptions = {
-    origin : "http://localhost:5173"
+    origin : "https://photogalleryfrontenc.vercel.app/"
     ,methods : "GET, POST, PUT, DELETE , PATCH , HEAD",
     credentials : true
 }
