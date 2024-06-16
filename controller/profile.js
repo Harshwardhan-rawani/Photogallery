@@ -2,13 +2,16 @@ const model = require("../model/user");
 const jwt = require("jsonwebtoken");
 
 const getProfile = async (req, res) => {
+ 
   try {
     const authHeader = req.header("Authorization");
+    console.log(authHeader)
     if (!authHeader) {
       return res.status(401).json({ message: "Authorization header is missing" });
     }
 
     const token = authHeader.replace("Bearer ", "");
+  
     let decoded;
     try {
       decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);

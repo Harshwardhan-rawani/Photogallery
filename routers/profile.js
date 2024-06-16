@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
     }
   });
   const upload = multer({ storage: storage });
-routes.route("/").get(getProfile)
+routes.get("/",getProfile)
 routes.put("/uploads",upload.single("image"),uploads)
 
 module.exports = routes

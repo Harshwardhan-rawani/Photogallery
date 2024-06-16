@@ -20,7 +20,7 @@ app.use(express.json())
 app.use(cors())
 app.use(express.static(path.join(__dirname)))
 
-app.get("/",(req,res)=>{
+app.get("/hello",(req,res)=>{
     res.send("hello")
 })
 app.use("/",userimage_router)
