@@ -10,7 +10,7 @@ const getuserimage=async(req,res)=>{
   res.json(data)
   }
   catch(error) {
-   console.log("error")
+  res.json({message:"error"})
   }
   
 }
