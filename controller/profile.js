@@ -11,7 +11,7 @@ const getProfile=async(req,res)=>{
      return res.status(201).json({user:user})
     }
   } catch (error) {
-    console.log("token not exist")
+    
   }
 
 
