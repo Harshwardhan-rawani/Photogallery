@@ -2,10 +2,16 @@ const model = require("../model/userimage")
 const jwt = require("jsonwebtoken")
 const fs =  require("fs")
 const getuserimage=async(req,res)=>{
+  try
+  {
   const token = req.header( "Authorization").replace("Bearer ","")
   const decoded = jwt.verify(token,process.env.JWT_SECRET_KEY)
   const data = await model.find({user_id:decoded.user_id})
   res.json(data)
+  }
+  catch(error) {
+   console.log("error")
+  }
   
 }
 
