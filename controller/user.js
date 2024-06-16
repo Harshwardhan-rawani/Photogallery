@@ -59,6 +59,7 @@ const postLogin = async(req,res)=>{
         console.log("user Not Register")
         return res.status(404).json({message:"User Not Register"})
     } catch (error) {
+        res.json({message : "error"})
         console.log("validation error : ",error)
     }
 }

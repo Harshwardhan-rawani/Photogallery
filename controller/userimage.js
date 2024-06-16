@@ -17,7 +17,7 @@ const getuserimage=async(req,res)=>{
 
 const Postuserimage= async(req,res)=>{
   const {title}=req.body
-  const image=req.file.path
+  const image = req.file.path
   const token = req.header( "Authorization").replace("Bearer ","")
   try {
     const decoded = jwt.verify(token,process.env.JWT_SECRET_KEY)
