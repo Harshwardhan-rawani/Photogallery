@@ -13,7 +13,7 @@ const userimage_router = require("./routers/userimage.js")
 const bodyParser = require('body-parser');
 
 
-getconnection(process.env.MONGOOSE).then(()=>{console.log("Connected")}).catch((error)=>{console.log("not connected : ")})
+getconnection(process.env.MONGOOSE).then(()=>{console.log("Connected")}).catch((error)=>{console.log("not connected : " , error)})
 app.use(express.urlencoded({extended:false}))
 app.use(bodyParser.json());
 app.use(express.json())
