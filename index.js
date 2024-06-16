@@ -24,6 +24,9 @@ app.use(express.json())
 app.use(cors(corsOptions))
 app.use(express.static(path.join(__dirname)))
 
+app.get("/",(req,res)=>{
+    res.send("hello")
+})
 app.use("/",userimage_router)
 app.use("/",user_router)
 app.use("/",profile_router)
