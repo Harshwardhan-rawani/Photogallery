@@ -71,14 +71,12 @@ function verifytoken(token){
 const postForgot = async(req,res)=>{
     try{
     const {email,password,confirm_password}=req.body
-    const token =req.header("Authorization").replace("Bearer ","")
-    const decode = verifytoken(token)
+ 
 
     const hashpassword = await bcrypt.hash(password,10)
     const user = await model.findOneAndUpdate({email},{$set:{password:hashpassword}},{new : true})
- 
     if(user){
-        if(decode.usermail !== user.email) return res.status(404).json({message:"Enter valid Mail"})
+        if(!user) return res.status(404).json({message:"Enter valid Mail"})
         console.log("Successfully Updated")
         return res.status(200).json({message: "Successfully Updated"})
     }
@@ -86,7 +84,7 @@ const postForgot = async(req,res)=>{
     return res.status(404).json({message: "User Have not logged In"})
 }
 catch(error){
-    console.log("Request argument is wrong")
+    console.log("Request argument is wrong",error)
     return res.status(404).json({message:"Request Argument is wrong"})
 }
 

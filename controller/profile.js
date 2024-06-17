@@ -5,7 +5,6 @@ const getProfile = async (req, res) => {
  
   try {
     const authHeader = req.header("Authorization");
-    console.log(authHeader)
     if (!authHeader) {
       return res.status(401).json({ message: "Authorization header is missing" });
     }
